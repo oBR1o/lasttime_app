@@ -8,7 +8,7 @@ class LastTimeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = context.select((LastTimeBloc bloc) => bloc.state.items);
-    return Expanded(
+    return LimitedBox(
       child: items.isEmpty
           ? const SizedBox(
               height: 200,
@@ -21,19 +21,40 @@ class LastTimeList extends StatelessWidget {
           : ListView.builder(
               itemCount: items.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(items[index].name),
-                      Text(
-                        items[index].cycleDays.toString(),
+                return Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Card(
+                      color: const Color.fromARGB(255, 218, 192, 163),
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        side: const BorderSide(color: Color.fromARGB(255, 16, 44, 87), width: 1),
                       ),
-                    ],
-                  ),
-                  subtitle: Text(
-                    items[index].lastAction?.toString() ?? 'No date',
-                  ),
+                      margin: const EdgeInsets.only(
+                        left: 25,
+                        right: 25,
+                        top: 5,
+                        bottom: 5,
+                      ),
+                      child: ListTile(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(items[index].name),
+                            Text(
+                              items[index].cycleDays.toString(),
+                            ),
+                          ],
+                        ),
+                        subtitle: Text(
+                          items[index].lastAction?.toString() ?? 'No date',
+                        ),
+                      ),
+                    )
+                  ],
                 );
               },
             ),
