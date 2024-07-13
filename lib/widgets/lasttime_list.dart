@@ -45,7 +45,7 @@ class LastTimeList extends StatelessWidget {
                           children: [
                             Text(items[index].name),
                             Text(
-                              items[index].cycleDays.toString(),
+                              '${items[index].cycleDays.toString()} day left',
                             ),
                           ],
                         ),

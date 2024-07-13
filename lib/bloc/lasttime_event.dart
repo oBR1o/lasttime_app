@@ -14,3 +14,9 @@ class SearchEvent extends LastTimeEvent{
 }
 
 class SearchClearEvent extends LastTimeEvent{}
+
+class AddEvent extends LastTimeEvent{
+  final String name;
+  final int cycleDays;
+  AddEvent({required this.name, required this.cycleDays});
+}
