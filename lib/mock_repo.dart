@@ -3,10 +3,10 @@ import 'package:lasttime/repo.dart';
 
 class LastTimeMockRepository extends LastTimeRepository{
    List<LastTimeItem> items =[
-      const LastTimeItem(1, 'ซักผ้า', 7, null),
-      const LastTimeItem(2, 'ถูบ้าน', 10, null),
-      const LastTimeItem(3, 'เปลี่ยนผ้าปูที่นอน', 30, null),
-      const LastTimeItem(4, 'โทรหาแม่', 3, null),
+      LastTimeItem(1, 'ซักผ้า', 7, null,),
+      LastTimeItem(2, 'ถูบ้าน', 10, null),
+      LastTimeItem(3, 'เปลี่ยนผ้าปูที่นอน', 30, null),
+      LastTimeItem(4, 'โทรหาแม่', 3, null),
     ];
 
     int lastId = 4;

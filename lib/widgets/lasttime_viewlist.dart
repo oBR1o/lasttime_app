@@ -71,13 +71,27 @@ class LastTimeViewList extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    items[index].lastAction != null
-                                        ? 'Last time: ${DateFormat('dd/MM/yyyy').format(items[index].lastAction!)}'
-                                        : 'Never do this',
+                                    items[index].nextAction != null
+                                        ? 'Next Time: ${DateFormat('dd/MM/yyyy').format(items[index].nextAction!)}'
+                                        : 'Next Time: -',
                                     style: GoogleFonts.roboto(
                                       color:
-                                          items[index].lastAction != null ? const Color.fromARGB(255, 12, 109, 44) : const Color.fromARGB(255, 170, 36, 26),
-                                      fontSize: 14,
+                                          const Color.fromARGB(255, 16, 44, 87),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                    items[index].lastAction != null
+                                        ? 'Last Time: ${DateFormat('dd/MM/yyyy').format(items[index].lastAction!)}'
+                                        : 'Never do this',
+                                    style: GoogleFonts.roboto(
+                                      color: items[index].lastAction != null
+                                          ? const Color.fromARGB(
+                                              255, 12, 109, 44)
+                                          : const Color.fromARGB(
+                                              255, 170, 36, 26),
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
