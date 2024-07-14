@@ -46,17 +46,9 @@ class LastTimeList extends StatelessWidget {
                             bottom: 5,
                           ),
                           child: ListTile(
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(items[index].name),
-                                Text(
-                                  '${items[index].cycleDays.toString()} day left',
-                                ),
-                              ],
-                            ),
+                            title: Text(items[index].name),
                             subtitle: Text(
-                              items[index].lastAction?.toString() ?? 'No Time Stamp',
+                              'every ${items[index].cycleDays.toString()} day',
                             ),
                             trailing: IconButton(
                               icon: const Icon(Icons.delete),

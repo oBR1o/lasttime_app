@@ -59,7 +59,7 @@ class LastTimeViewList extends StatelessWidget {
                                   Text(
                                     items[index].lastAction != null
                                     ? 'Last time: ${DateFormat('dd-MM-yyyy').format(items[index].lastAction!)}'
-                                    : 'Never Do this',
+                                    : 'Never do this',
                                   ),
                                 ],
                               ),
