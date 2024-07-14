@@ -27,19 +27,20 @@ class HomePage extends StatelessWidget {
           child: const TabBarView(
             children: [
               LastTimePage(),
-              Text('This is create Task page'),
+              Text('For Edit'),
             ],
           ),
         ),
         bottomNavigationBar: Container(
+          height: 50,
           decoration: const BoxDecoration(color: Color.fromARGB(255, 16, 44, 87),),
           child: const TabBar(
             tabs: [
               Tab(
-                icon: Icon(Icons.list, color: Colors.white),
+                icon: Icon(Icons.list, color: Colors.white,)
               ),
               Tab(
-                icon: Icon(Icons.create, color: Colors.white),
+                icon: Icon(Icons.create, color: Colors.white,),
               ),
             ],
           ),

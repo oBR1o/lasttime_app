@@ -20,3 +20,8 @@ class AddEvent extends LastTimeEvent{
   final int cycleDays;
   AddEvent({required this.name, required this.cycleDays});
 }
+
+class RemoveEvent extends LastTimeEvent{
+  final int id;
+  RemoveEvent({required this.id});
+}

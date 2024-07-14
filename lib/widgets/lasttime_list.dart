@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
 import 'package:lasttime/widgets/lasttime_add.dart';
+import 'package:lasttime/widgets/lasttime_remove.dart';
 
 class LastTimeList extends StatelessWidget {
   const LastTimeList({super.key});
@@ -57,6 +58,7 @@ class LastTimeList extends StatelessWidget {
                             subtitle: Text(
                               items[index].lastAction?.toString() ?? 'No date',
                             ),
+                            trailing: const Icon(Icons.delete),
                           ),
                         )
                       ],
@@ -67,14 +69,34 @@ class LastTimeList extends StatelessWidget {
         Positioned(
           bottom: 15,
           right: 15,
-          child: FloatingActionButton(
-            onPressed: () {
-              showDialog(context: context, builder: (context){
-                return const LastTimeAdd();
-              },);
-            },
-            shape: const CircleBorder(),
-            child: const Icon(Icons.add),
+          child: Column(
+            children: [
+              FloatingActionButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const LastTimeAdd();
+                    },
+                  );
+                },
+                shape: const CircleBorder(),
+                child: const Icon(Icons.add),
+              ),
+              const SizedBox(height: 20,),
+              FloatingActionButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const LastTimeRemove();
+                    },
+                  );
+                },
+                shape: const CircleBorder(),
+                child: const Icon(Icons.remove),
+              ),
+            ],
           ),
         ),
       ],

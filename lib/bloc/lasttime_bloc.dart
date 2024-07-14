@@ -9,6 +9,7 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
   LastTimeBloc(this.repository) : super(LoadingState()){
     on<LoadEvent>(_onLoaded);
     on<AddEvent>(_onAdded);
+    on<RemoveEvent>(_onRemoved);
   }
 
   _onLoaded(LoadEvent event, Emitter<LastTimeState> emit) async{
@@ -20,5 +21,10 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
     await repository.add(name: event.name, cycleDays: event.cycleDays);
     emit(LoadingState());
     add(LoadEvent());
+  }
+
+  _onRemoved(RemoveEvent event, Emitter<LastTimeState> emit) async{
+    await repository.remove(id: event.id);
+    emit(LoadingState());
   }
 }

@@ -26,4 +26,10 @@ class LastTimeMockRepository extends LastTimeRepository{
     LastTimeItem newElement = LastTimeItem(id, name, cycleDays, null);
     items.add(newElement);
   }
+
+  @override
+  Future<void> remove({required int id}) async{
+    await Future.delayed(const Duration(seconds: 0));
+    items.removeWhere((element) => element.id == id);
+  } 
 }
