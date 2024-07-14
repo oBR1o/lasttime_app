@@ -18,7 +18,7 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
 
   _onAdded(AddEvent event, Emitter<LastTimeState> emit) async{
     await repository.add(name: event.name, cycleDays: event.cycleDays);
-    final items = await repository.load();
-    emit(ReadyState(items: items));
+    emit(LoadingState());
+    add(LoadEvent());
   }
 }
