@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
+import 'package:lasttime/widgets/confirmalaert_dialog.dart';
 
 class LastTimeViewList extends StatelessWidget {
   const LastTimeViewList({super.key});
@@ -44,17 +46,31 @@ class LastTimeViewList extends StatelessWidget {
                             bottom: 5,
                           ),
                           child: ListTile(
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            title: Text(items[index].name),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(items[index].name),
                                 Text(
                                   '${items[index].cycleDays.toString()} day left',
                                 ),
+                                Text(
+                                  items[index].lastAction != null
+                                  ? 'Last time: ${DateFormat('dd-MM-yyyy').format(items[index].lastAction!)}'
+                                  : 'Never Do this',
+                                ),
                               ],
                             ),
-                            subtitle: Text(
-                              items[index].lastAction?.toString() ?? 'No Time Stamp',
+                            trailing: IconButton(
+                              icon: const Icon(Icons.check_circle_outline),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return ConfirmAlertDialog(
+                                        id: items[index].id);
+                                  },
+                                );
+                              },
                             ),
                           ),
                         ),
