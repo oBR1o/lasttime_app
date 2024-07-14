@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
 import 'package:lasttime/widgets/lasttime_add.dart';
-import 'package:lasttime/widgets/lasttime_remove.dart';
+import 'package:lasttime/widgets/removealert_dialog.dart';
 
 class LastTimeList extends StatelessWidget {
   const LastTimeList({super.key});
@@ -58,9 +58,19 @@ class LastTimeList extends StatelessWidget {
                             subtitle: Text(
                               items[index].lastAction?.toString() ?? 'No date',
                             ),
-                            trailing: const Icon(Icons.delete),
+                            trailing: IconButton(
+                              icon: const Icon(Icons.delete),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return RemoveAlertDialog(items: items[index]);
+                                  },
+                                );
+                              },
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     );
                   },
@@ -83,16 +93,11 @@ class LastTimeList extends StatelessWidget {
                 shape: const CircleBorder(),
                 child: const Icon(Icons.add),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               FloatingActionButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const LastTimeRemove();
-                    },
-                  );
-                },
+                onPressed: () {},
                 shape: const CircleBorder(),
                 child: const Icon(Icons.remove),
               ),
