@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
 import 'package:lasttime/widgets/addsimple_dialog.dart';
 import 'package:lasttime/widgets/removealert_dialog.dart';
@@ -46,9 +47,21 @@ class LastTimeList extends StatelessWidget {
                             bottom: 5,
                           ),
                           child: ListTile(
-                            title: Text(items[index].name),
+                            title: Text(
+                              items[index].name,
+                              style: GoogleFonts.roboto(
+                                color: const Color.fromARGB(255, 16, 44, 87),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                             subtitle: Text(
                               'every ${items[index].cycleDays.toString()} day',
+                              style: GoogleFonts.roboto(
+                                color: const Color.fromARGB(255, 16, 44, 87),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                             trailing: IconButton(
                               icon: const Icon(Icons.delete),
@@ -61,6 +74,8 @@ class LastTimeList extends StatelessWidget {
                                   },
                                 );
                               },
+                              iconSize: 30,
+                              color: const Color.fromARGB(255, 170, 36, 26),
                             ),
                           ),
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
 
 class LastTimeSearch extends StatefulWidget {
@@ -31,14 +32,17 @@ class _LastTimeSearchState extends State<LastTimeSearch> {
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Color.fromARGB(255, 16, 44, 87), width: 1),
           ),
           filled: true,
           fillColor: Colors.white,
           prefixIcon: const Icon(
             Icons.search,
+            color: Color.fromARGB(255, 16, 44, 87),
           ),
           hintText: 'Search',
-          hintStyle: const TextStyle(
+          hintStyle: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 16, 44, 87),
           ),
         ),
       ),

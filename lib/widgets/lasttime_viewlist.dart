@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
 import 'package:lasttime/widgets/confirmalaert_dialog.dart';
@@ -49,17 +50,36 @@ class LastTimeViewList extends StatelessWidget {
                               bottom: 5,
                             ),
                             child: ListTile(
-                              title: Text(items[index].name),
+                              title: Text(
+                                items[index].name,
+                                style: GoogleFonts.roboto(
+                                  color: const Color.fromARGB(255, 16, 44, 87),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                               subtitle: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     '${items[index].cycleDays.toString()} day left',
+                                    style: GoogleFonts.roboto(
+                                      color:
+                                          const Color.fromARGB(255, 16, 44, 87),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                   Text(
                                     items[index].lastAction != null
-                                    ? 'Last time: ${DateFormat('dd-MM-yyyy').format(items[index].lastAction!)}'
-                                    : 'Never do this',
+                                        ? 'Last time: ${DateFormat('dd/MM/yyyy').format(items[index].lastAction!)}'
+                                        : 'Never do this',
+                                    style: GoogleFonts.roboto(
+                                      color:
+                                          items[index].lastAction != null ? const Color.fromARGB(255, 12, 109, 44) : const Color.fromARGB(255, 170, 36, 26),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -74,6 +94,8 @@ class LastTimeViewList extends StatelessWidget {
                                     },
                                   );
                                 },
+                                iconSize: 30,
+                                color: const Color.fromARGB(255, 16, 44, 87),
                               ),
                             ),
                           ),

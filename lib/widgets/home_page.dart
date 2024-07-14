@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lasttime/widgets/lasttime_page.dart';
 import 'package:lasttime/widgets/lasttime_view.dart';
 
@@ -13,9 +14,9 @@ class HomePage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
+          title: Text(
             'Last Time',
-            style: TextStyle(
+            style: GoogleFonts.roboto(
               color: Colors.white,
               fontSize: 23,
               fontWeight: FontWeight.bold,
