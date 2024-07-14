@@ -11,6 +11,7 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
     on<AddEvent>(_onAdded);
     on<RemoveEvent>(_onRemoved);
     on<ActionEvent>(_onActioned);
+    on<SearchEvent>(_onSearched);
   }
 
   _onLoaded(LoadEvent event, Emitter<LastTimeState> emit) async{
@@ -32,6 +33,10 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
   _onActioned(ActionEvent event, Emitter<LastTimeState> emit) async{
     await repository.action(id: event.id, lastAction: event.lastAction);
     emit(LoadingState());
+  }
 
+  _onSearched(SearchEvent event, Emitter<LastTimeState> emit) async{
+    final items = await repository.search(event.key);
+    emit(ReadyState(items: items ));
   }
 }

@@ -17,6 +17,11 @@ class LastTimeMockRepository extends LastTimeRepository{
     items.sort((a,b) => a.cycleDays.compareTo(b.cycleDays));
     return items;
   }
+  @override
+  Future<List<LastTimeItem>> search(String key) async{
+    await Future.delayed(const Duration(seconds: 0));
+    return items.where((element) => element.name.contains(key)).toList();
+  }
 
   @override
   Future<void> add({required String name, required int cycleDays}) async{
