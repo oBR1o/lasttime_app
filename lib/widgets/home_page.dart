@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lasttime/widgets/lasttime_page.dart';
+import 'package:lasttime/widgets/lasttime_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -23,24 +24,32 @@ class HomePage extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 16, 44, 87),
         ),
         body: Container(
-          decoration: const BoxDecoration(color: Color.fromARGB(255, 248, 240, 229) ),
+          decoration:
+              const BoxDecoration(color: Color.fromARGB(255, 248, 240, 229)),
           child: const TabBarView(
             children: [
+              LastTimeView(),
               LastTimePage(),
-              Text('For Edit'),
             ],
           ),
         ),
         bottomNavigationBar: Container(
           height: 50,
-          decoration: const BoxDecoration(color: Color.fromARGB(255, 16, 44, 87),),
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 16, 44, 87),
+          ),
           child: const TabBar(
             tabs: [
               Tab(
-                icon: Icon(Icons.list, color: Colors.white,)
-              ),
+                  icon: Icon(
+                Icons.list,
+                color: Colors.white,
+              )),
               Tab(
-                icon: Icon(Icons.create, color: Colors.white,),
+                icon: Icon(
+                  Icons.create,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),

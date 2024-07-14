@@ -10,6 +10,7 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
     on<LoadEvent>(_onLoaded);
     on<AddEvent>(_onAdded);
     on<RemoveEvent>(_onRemoved);
+    on<ActionEvent>(_onActioned);
   }
 
   _onLoaded(LoadEvent event, Emitter<LastTimeState> emit) async{
@@ -26,5 +27,11 @@ class LastTimeBloc extends Bloc<LastTimeEvent, LastTimeState> {
   _onRemoved(RemoveEvent event, Emitter<LastTimeState> emit) async{
     await repository.remove(id: event.id);
     emit(LoadingState());
+  }
+
+  _onActioned(ActionEvent event, Emitter<LastTimeState> emit) async{
+    await repository.action(id: event.id, lastAction: event.lastAction);
+    emit(LoadingState());
+
   }
 }

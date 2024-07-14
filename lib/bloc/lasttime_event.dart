@@ -25,3 +25,9 @@ class RemoveEvent extends LastTimeEvent{
   final int id;
   RemoveEvent({required this.id});
 }
+
+class ActionEvent extends LastTimeEvent{
+  final int id;
+  final DateTime lastAction;
+  ActionEvent({required this.id,required this.lastAction });
+}

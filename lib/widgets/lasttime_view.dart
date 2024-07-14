@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
-import 'package:lasttime/widgets/addsimple_dialog.dart';
-import 'package:lasttime/widgets/removealert_dialog.dart';
 
-class LastTimeList extends StatelessWidget {
-  const LastTimeList({super.key});
+class LastTimeView extends StatelessWidget {
+  const LastTimeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,44 +56,12 @@ class LastTimeList extends StatelessWidget {
                             subtitle: Text(
                               items[index].lastAction?.toString() ?? 'No Time Stamp',
                             ),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.delete),
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return RemoveAlertDialog(
-                                        items: items[index]);
-                                  },
-                                );
-                              },
-                            ),
                           ),
                         ),
                       ],
                     );
                   },
                 ),
-        ),
-        Positioned(
-          bottom: 15,
-          right: 15,
-          child: Column(
-            children: [
-              FloatingActionButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const AddsimpleDialog();
-                    },
-                  );
-                },
-                shape: const CircleBorder(),
-                child: const Icon(Icons.add),
-              ),
-            ],
-          ),
         ),
       ],
     );

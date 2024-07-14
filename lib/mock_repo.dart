@@ -32,4 +32,12 @@ class LastTimeMockRepository extends LastTimeRepository{
     await Future.delayed(const Duration(seconds: 0));
     items.removeWhere((element) => element.id == id);
   } 
+
+  @override
+  Future<void> action({required int id,required DateTime lastAction}) async{
+    await Future.delayed(const Duration(seconds: 0));
+    final index = items.indexWhere((item) => item.id == id);
+    items[index] = LastTimeItem(id, items[index].name, items[index].cycleDays, lastAction);
+
+  }
 }
