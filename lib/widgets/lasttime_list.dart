@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lasttime/bloc/app_bloc.dart';
-import 'package:lasttime/widgets/lasttime_add.dart';
+import 'package:lasttime/widgets/addsimple_dialog.dart';
 import 'package:lasttime/widgets/removealert_dialog.dart';
 
 class LastTimeList extends StatelessWidget {
@@ -64,7 +64,8 @@ class LastTimeList extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return RemoveAlertDialog(items: items[index]);
+                                    return RemoveAlertDialog(
+                                        items: items[index]);
                                   },
                                 );
                               },
@@ -86,20 +87,12 @@ class LastTimeList extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return const LastTimeAdd();
+                      return const AddsimpleDialog();
                     },
                   );
                 },
                 shape: const CircleBorder(),
                 child: const Icon(Icons.add),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              FloatingActionButton(
-                onPressed: () {},
-                shape: const CircleBorder(),
-                child: const Icon(Icons.remove),
               ),
             ],
           ),
